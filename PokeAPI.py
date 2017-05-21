@@ -401,7 +401,7 @@ class PokeAPI(BaseAPI):
 
 def _make_methods():
     "Automagically generates methods based on the API endpoints"
-    for k, v in PokeAPI().get_endpoints().items():
+    for k, v in list(PokeAPI().get_endpoints().items()):
         string = "\t@BaseAPI._memoize\n"
         string += ("\tdef get_{0}(self, id_or_name='', limit=None,"
                    .format(k.replace('-', '_')) + ' offset=None):\n')
